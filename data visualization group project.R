@@ -66,3 +66,12 @@ ggplot(hcw_data_final, aes(x = agedvg4, fill = gen_15)) +
        x = "Age (Years)",
        y = "",
        fill = "Mental health compared to pre-pandemic")
+  
+  # removes grid lines and title boxes
+  theme_classic() +
+  theme(strip.background = element_blank()) +
+
+  #' adds counts to the bars for easier comparison
+  stat_count(geom = "text",
+             aes(label = stat(count)),
+             position = position_stack(vjust = 0.5), size = 2, color = "white")
